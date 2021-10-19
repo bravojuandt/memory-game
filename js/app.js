@@ -15,7 +15,7 @@ let lastColor = "";
 
 let clicks = 0
 
-let clickedSqaures = [];
+let clickedSquares = [];
 
 let duplicateClicks = false;
 
@@ -24,9 +24,9 @@ let gameStart = false;
 
 // Event Listener
 
-// document.getElementById('start').addEventListener('click', startGame);
+document.getElementById('start').addEventListener('click', startGame);
 
-// document.getElementById('reset').addEventListener('click', resetGame);
+document.getElementById('reset').addEventListener('click', resetGame);
 
 // listen for each square
 document.getElementById('square0').addEventListener('click', function(){
@@ -62,13 +62,45 @@ document.getElementById('square9').addEventListener('click', function(){
 })
 
 function startGame() {
+  resetFlip()
   console.log('game started')
 }
 
 function resetGame() {
+  resetFlip()
   console.log('game reset')
+  
 }
-
+// main function
 function squares(square) {
   console.log(square)
+
+  if (gameStart){
+    console.log('game has started');
+    // for(let i = 0; i < clickedSquares.length; i ++){
+    //   if(square == clickedSquares[i]){
+    //     duplicateClicks = true;
+    //     console.log(duplicateClicks)
+      }
+
+    }
+
+//   }
+  
+  
+// }
+
+// reset if not match 
+function resetFlip(){
+  lastColor = '';
+  clicks= 0;
+  clickedSquares = [];
+  duplicateClicks= false;
+  startGame = true;
+
+  for(let i = 0; i < 10; i++){
+    let element = "square" + i;
+    document.getElementById(element).style.backgroundColor = "brown";
+  }
 }
+
