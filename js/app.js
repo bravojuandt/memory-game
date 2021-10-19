@@ -4,25 +4,27 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let winner,secretBox, board, match
+let winner,box1Value, box1Index, box2value, box2Index
 
 
 
 /*------------------------ Cached Element References ------------------------*/
 
-const boardSquare = document.querySelector('.board')
-const allSquares = document.querySelectorAll(".squares")
+const board = document.querySelector('.board')
+
 const statusMessage = document.querySelector('#message')
 const resetBtn = document.querySelector('#reset-button')
-const matchInput = document.querySelector('#match-input')
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-// document.addEventListener("click", handleClick)
-allSquares.forEach((square) => {
-  square.addEventListener('click', handleClick)
+board.addEventListener("click", function(event) {
+
+})
+
+resetBtn.addEventListener('click', function() {
+
 })
 
 
@@ -33,48 +35,24 @@ init()
 
 function init () {
 
-match = 1
-secretBox= null
-board = [null,null, null, null, null, null, null, null, null,null]
-winner = null
-secretBox = Math.floor(Math.random() * 5 + 1)
-console.log(secretBox)
+turn = 1
+
+let board = ['A', 'B', 'C', 'D', 'E']
+
 render()
 }
 
+function shuffle(){
+  let boxesToShuffle = [];
+  let boxToAdd;
+  for(let i = i; i < board.length; i++){
+    boxToAdd = board.splice(Math.random() * board.length + 1, 1);
+    boxesToShuffle.push(boxToAdd.toString())
+    boxesToShuffle.push(boxToAdd.toString())
 
-function render() {
-  if(match === secretBox) {
-    return
-      }else if(match === -1) {
-    
-      }
-  for (let i = 0; i < board.length; i++) {
-    if (board[i] === secretBox) {
-      allSquares[i].style.backgroundColor = 'pink'
-      allSquares[i].innerText = '1'
-    } else if(board[i] === -1) {
-      allSquares[i].style.backgroundColor = 'orange'
-      allSquares[i].innerText = '2'
-    
-    }else {
-      allSquares[i].style.backgroundColor = 'purple'
-    }
   }
+  shuffle(boxesToShuffle);
 }
-
-console.log(board)
-
-
-function handleClick(event) {
-  let i = parseInt(event.target.id);
-  if (board[i] === null) { //check if move is valid
-    board[i] = match // update appropriate element with a 1 or -1
-    render(); // render the changes made to our game state
-    match = match * -1 // switch the value of turn
-  }
-}
-
 
 
 
