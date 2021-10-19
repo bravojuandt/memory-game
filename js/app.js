@@ -71,24 +71,6 @@ function resetGame() {
   console.log('game reset')
   
 }
-// main function
-function squares(square) {
-  console.log(square)
-
-  if (gameStart){
-    console.log('game has started');
-    // for(let i = 0; i < clickedSquares.length; i ++){
-    //   if(square == clickedSquares[i]){
-    //     duplicateClicks = true;
-    //     console.log(duplicateClicks)
-      }
-
-    }
-
-//   }
-  
-  
-// }
 
 // reset if not match 
 function resetFlip(){
@@ -104,3 +86,49 @@ function resetFlip(){
   }
 }
 
+// main function
+function squares(square) {
+  console.log(square)
+  if(gameStart){
+    console.log('the game has started');
+    // check if clicked
+    for (let i = 0; i < clickedSquares.length; i++){
+      if (square == clickedSquares[i]){
+      duplicateClicks = true;
+      console.log('duplicate click');
+      }
+    }
+    if(duplicateClicks){
+      clickedSquares.push(square);
+    }
+    duplicateClicks = false;
+    
+
+  }
+  else{
+    console.log('the game has not started')
+  }
+  }
+
+// reset full game
+
+function resetFullGame(){
+  let blue = 0,
+  green = 0,
+  green = 0,
+  purple = 0,
+  orange = 0;
+
+  blueArray = [],
+  greenArray = [],
+  purpleArray = [],
+  orangeArray = [],
+  redArray = [];
+
+  for (let i  = 0; i  < 10; i ++) {
+    let number = Math.floor(Math.random() * 5)
+    
+  }
+
+
+}
