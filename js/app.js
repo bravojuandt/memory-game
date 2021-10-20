@@ -1,4 +1,4 @@
-const squaresArray = ['0','1','2','3','4','5','6','7','8','9'];
+const squaresArray = ['square0','square1','square2','square3','square4','square5','square6','square7','square8','square9'];
 
 
 const colorsArray = ['blue', 'green', 'purple', 'orange', 'red'];
@@ -13,7 +13,7 @@ let blueArray = [],
 
 let lastColor = "";
 
-let clicks = 0
+let clicks = 0square
 
 let clickedSquares = [];
 
@@ -102,33 +102,84 @@ function squares(square) {
       clickedSquares.push(square);
     }
     duplicateClicks = false;
-    
+    console.log(duplicateClicks)
 
   }
   else{
-    console.log('the game has not started')
+    
   }
   }
 
 // reset full game
 
-function resetFullGame(){
-  let blue = 0,
-  green = 0,
-  green = 0,
-  purple = 0,
-  orange = 0;
 
+// Reset variables associated with the randomization of tiles placement
+function gameFullReset() {
+      green = 0,
+      purple = 0,
+      orange = 0,
+      red = 0;
+
+  // empty the arrays to store new tiles
   blueArray = [],
   greenArray = [],
   purpleArray = [],
   orangeArray = [],
   redArray = [];
 
-  for (let i  = 0; i  < 10; i ++) {
-    let number = Math.floor(Math.random() * 5)
-    
+  for (let i = 0; i < 10; i++){
+      let nmbr = Math.floor(Math.random() * 5);
+
+      if (nmbr === 0){
+          if (blue < 2){
+              blue++;
+              blueArray.push(squaresArray[i]);
+          }
+          else {
+              i--;
+          }
+      }
+      else if (nmbr === 1){
+          if (green < 2){
+              green++;
+              greenArray.push(squaresArray[i]);
+          }
+          else {
+              i--;
+          }
+      }
+      else if (nmbr === 2){
+          if (purple < 2){
+              purple++;
+              purpleArray.push(squaresArray[i]);
+          }
+          else {
+              i--;
+          }
+      }
+      else if (nmbr === 3){
+          if (orange < 2){
+              orange++;
+              orangeArray.push(squaresArray[i]);
+          }
+          else {
+              i--;
+          }
+      }
+      else if (nmbr === 4){
+          if (red < 2){
+              red++;
+              redArray.push(squaresArray[i]);
+          }
+          else {
+              i--;
+          }
+      }
   }
-
-
 }
+
+
+
+
+
+
